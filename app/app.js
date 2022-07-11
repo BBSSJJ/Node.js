@@ -32,5 +32,6 @@ app.set("views", "./src/views");    // 화면 view를 관리해줄 파일이 저
 app.set("view engine", "ejs");  // ejs를 view engine으로 사용할 것이다, html과 비슷
 
 app.use("/", home);      // use -> 미들웨어를 등록해주는 메서드
+app.use(express.static(`${__dirname}/src/public`));
 
 module.exports = app;
