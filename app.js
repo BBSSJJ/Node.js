@@ -22,7 +22,6 @@ app.listen(3001, () =>{
 const express = require("express"); //  require로 express라는 모듈을 다운받는다
 const app = express(); // express 실행시켜서 app이라는 변수에 넣는다
 
-const PORT = 3000;
 
 // 라우팅
 const home = require("./routes/home");
@@ -34,7 +33,4 @@ app.set("view engine", "ejs");  // ejs를 view engine으로 사용할 것이다,
 
 app.use("/", home);      // use -> 미들웨어를 등록해주는 메서드
 
-app.listen(PORT, function () {
-  // listen이라는 명령어로 port를 띄운다
-  console.log("서버가동");
-});
+module.exports = app;
