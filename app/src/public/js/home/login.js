@@ -14,4 +14,13 @@ function login(){
         id: id.value,
         psword: psword.value,
     };
+    console.log(req);
+    console.log(JSON.stringify(req));
+    fetch("/login", {                   //서버와 프론트가 어떤 경로에서 주고받을지 정해준다
+        body: JSON.stringify(req),       //두 번째 파라미터로 전달할 데이터를 오브젝트 형태로 보내줘야 한다. req라는 데이터를 JSON이라는 data type으로 data전달할 것이므로 json형태로 감싸준다
+        method: "POST",                   //body를 통해서 data를 전달할 때는 http 메소드 중 post로 보내야 한다.
+        headers: {
+            "Content-Type": "application/json"
+        },
+    });                                  //json객체는 문자열로 감싸져있다
 }
