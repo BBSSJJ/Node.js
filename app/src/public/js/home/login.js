@@ -22,5 +22,8 @@ function login(){
         headers: {
             "Content-Type": "application/json"
         },
-    });                                  //json객체는 문자열로 감싸져있다
+    })
+    .then(res => res.json())
+    .then(console.log());                  
 }
+//fetch 끝에 .then()으로 data를 가져올 수 있다

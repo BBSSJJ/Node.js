@@ -21,7 +21,7 @@ app.listen(3001, () =>{
 // 모듈
 const express = require("express"); //  require로 express라는 모듈을 다운받는다
 const app = express(); // express 실행시켜서 app이라는 변수에 넣는다
-
+const bodyParser = require("body-parser");
 
 // 라우팅
 const home = require("./src/routes/home");
@@ -31,7 +31,9 @@ const home = require("./src/routes/home");
 app.set("views", "./src/views");    // 화면 view를 관리해줄 파일이 저장될 폴더 이름을 두번째 파라미터로 넘겨준다
 app.set("view engine", "ejs");  // ejs를 view engine으로 사용할 것이다, html과 비슷
 
-app.use("/", home);      // use -> 미들웨어를 등록해주는 메서드
 app.use(express.static(`${__dirname}/src/public`));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));   //url을 통해 전달되는 데이터에 한글, 공백 등과 같은 문자가 포함될 경우 제대로 인식되지 않는 문제 해결
+app.use("/", home);      // use -> 미들웨어를 등록해주는 메서드
 
 module.exports = app;
