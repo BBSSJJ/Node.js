@@ -24,6 +24,15 @@ function login(){
         },
     })
     .then(res => res.json())
-    .then(console.log());                  
+    .then(res => {
+        if(res.success){
+            location.href = "/";
+        } else{
+            alert(res.msg);
+        }
+    })
+    .catch((err) => {
+        console.error(new Error("로그인중 에러 발생"));
+    });            
 }
 //fetch 끝에 .then()으로 data를 가져올 수 있다
