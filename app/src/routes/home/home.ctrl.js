@@ -11,6 +11,10 @@ const output = {
     login: (req, res) => {       // ` 사용 주의!! ' " 랑은 다름
         res.render("home/login");
     },
+
+    register: (req, res) => {
+        res.render("home/register");
+    }
 }
 
 
